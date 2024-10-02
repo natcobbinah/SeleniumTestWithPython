@@ -7,7 +7,8 @@ from logger import LogEventListener
 class ApressCookieConsentScreen(unittest.TestCase):
     #sample test case using page object model
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(self):
         options = webdriver.ChromeOptions()
         options.add_argument('--ignore-certificate-errors')
         options.add_argument('--ignore-ssl-errors')
@@ -16,7 +17,7 @@ class ApressCookieConsentScreen(unittest.TestCase):
         self.driver.get("http://www.apress.com")
         self.driver.maximize_window()
 
-    def test_navigate_to_python_link(self):
+    """ def test_navigate_to_python_link(self):
         consent_screen = pages.CookiePopupScreenPage(self.driver)
         consent_screen.click_reject_cookies_btn()
 
@@ -24,9 +25,9 @@ class ApressCookieConsentScreen(unittest.TestCase):
         categories_menu.click_categories_menu()
 
         python_books_page = pages.HomePageScreenPage(self.driver)
-        python_books_page.click_redirect_to_python_page()
+        python_books_page.click_redirect_to_python_page() """
 
-    """  def test_apress_consent_screen(self):
+    def test_apress_consent_screen(self):
         consent_screen = pages.CookiePopupScreenPage(self.driver)
         consent_screen.click_reject_cookies_btn()
 
@@ -36,10 +37,11 @@ class ApressCookieConsentScreen(unittest.TestCase):
 
     def test_redirect_to_python_page(self):
         python_books_page = pages.HomePageScreenPage(self.driver)
-        python_books_page.click_redirect_to_python_page() """
+        python_books_page.click_redirect_to_python_page() 
 
     
-    def tearDown(self) -> None:
+    @classmethod
+    def tearDownClass(self) -> None:
         self.driver.close()
 
 

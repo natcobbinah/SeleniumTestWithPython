@@ -8,13 +8,11 @@ class BasePageElement(object):
     # can be extended to define various various for timeouts and polling
     # polling is essential to prevent WebDriverWait to wait explicitly for
     # a target element which can not be located and continue with other tests
-
     def __init__(self):
         self.timeout_and_poll = {
             "timeout_100": 100,
             "polling_10": 10
         }
-
 
     def __set__(self, obj, value):
         #here we can pass values if its a text element using send_keys(value)

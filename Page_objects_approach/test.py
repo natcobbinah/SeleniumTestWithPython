@@ -1,6 +1,8 @@
 import unittest
 from selenium import webdriver
+from selenium.webdriver.support.events import EventFiringWebDriver
 import pages
+from logger import LogEventListener
 
 class ApressCookieConsentScreen(unittest.TestCase):
     #sample test case using page object model
@@ -10,7 +12,7 @@ class ApressCookieConsentScreen(unittest.TestCase):
         options.add_argument('--ignore-certificate-errors')
         options.add_argument('--ignore-ssl-errors')
 
-        self.driver = webdriver.Chrome(options)
+        self.driver = EventFiringWebDriver(webdriver.Chrome(options), LogEventListener())
         self.driver.get("http://www.apress.com")
         self.driver.maximize_window()
 
